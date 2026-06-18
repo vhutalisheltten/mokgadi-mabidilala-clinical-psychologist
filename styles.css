@@ -118,6 +118,14 @@ img {
   transform: scaleX(1);
 }
 
+.site-nav a[aria-current="page"] {
+  color: var(--ink);
+}
+
+.site-nav a[aria-current="page"]::after {
+  transform: scaleX(1);
+}
+
 .nav-toggle {
   display: none;
   width: 44px;
@@ -691,6 +699,188 @@ h3 {
   color: var(--muted);
 }
 
+.suggestions-preview {
+  background: #fff;
+}
+
+.suggestion-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.suggestion-card {
+  display: grid;
+  gap: 10px;
+  min-height: 154px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.suggestion-card:hover,
+.suggestion-card:focus-visible {
+  border-color: var(--blue);
+  box-shadow: 0 16px 32px rgba(24, 49, 63, 0.1);
+  transform: translateY(-3px);
+  outline: none;
+}
+
+.suggestion-card span {
+  color: var(--coral);
+  font-size: 0.78rem;
+  font-weight: 900;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.suggestion-card strong {
+  align-self: end;
+  font-size: 1.08rem;
+  line-height: 1.25;
+}
+
+.suggestion-card.urgent {
+  color: #fff;
+  background: var(--ink);
+}
+
+.suggestion-card.urgent span {
+  color: #97d7ec;
+}
+
+.page-hero {
+  padding: clamp(58px, 8vw, 110px) clamp(18px, 5vw, 78px);
+  background:
+    linear-gradient(120deg, rgba(223, 244, 251, 0.95), rgba(251, 252, 251, 0.8) 56%, rgba(223, 234, 222, 0.86)),
+    radial-gradient(circle at 88% 10%, rgba(189, 113, 94, 0.2), transparent 28%);
+}
+
+.page-hero.compact {
+  padding-block: clamp(48px, 7vw, 86px);
+}
+
+.page-hero h1 {
+  font-size: clamp(2.2rem, 5vw, 4.8rem);
+}
+
+.content-band {
+  padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 78px);
+  background: #fff;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(22px, 5vw, 60px);
+}
+
+.content-grid article,
+.resource-card {
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.content-grid h2,
+.resource-card h2,
+.service-detail h2 {
+  font-size: clamp(1.45rem, 2vw, 2rem);
+}
+
+.content-grid p,
+.resource-card p,
+.service-detail p {
+  color: var(--muted);
+}
+
+.service-detail-list {
+  display: grid;
+  gap: 14px;
+  padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 78px);
+  background: #fff;
+}
+
+.service-detail {
+  display: grid;
+  grid-template-columns: 74px minmax(0, 1fr);
+  gap: 22px;
+  align-items: start;
+  padding: clamp(22px, 4vw, 32px);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--paper);
+}
+
+.service-detail > span {
+  display: grid;
+  place-items: center;
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  color: #fff;
+  background: var(--blue);
+  font-weight: 900;
+}
+
+.service-detail a {
+  display: inline-flex;
+  margin-top: 8px;
+  color: var(--blue-dark);
+  font-weight: 900;
+}
+
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.crisis-section {
+  display: grid;
+  grid-template-columns: minmax(0, 0.85fr) minmax(320px, 1fr);
+  gap: clamp(24px, 5vw, 58px);
+  padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 78px);
+  color: #fff;
+  background: var(--ink);
+}
+
+.crisis-section .eyebrow {
+  color: #97d7ec;
+}
+
+.crisis-section p {
+  max-width: 680px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.crisis-actions {
+  display: grid;
+  gap: 12px;
+}
+
+.crisis-actions a {
+  display: block;
+  padding: 18px 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.08);
+  font-weight: 900;
+}
+
+.crisis-actions a:hover,
+.crisis-actions a:focus-visible {
+  background: rgba(255, 255, 255, 0.14);
+  outline: none;
+}
+
+.contact-page-form {
+  background: #fff;
+}
+
 .split-section,
 .appointment-section {
   display: grid;
@@ -853,8 +1043,15 @@ textarea:focus {
   }
 
   .service-grid,
-  .contact-links {
+  .contact-links,
+  .suggestion-grid,
+  .content-grid,
+  .resource-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .crisis-section {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -909,11 +1106,18 @@ textarea:focus {
   }
 
   .service-grid,
-  .contact-links {
+  .contact-links,
+  .suggestion-grid,
+  .content-grid,
+  .resource-grid {
     grid-template-columns: 1fr;
   }
 
   .service-card {
     min-height: 0;
+  }
+
+  .service-detail {
+    grid-template-columns: 1fr;
   }
 }
