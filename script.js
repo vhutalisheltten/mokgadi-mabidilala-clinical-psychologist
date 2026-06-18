@@ -50,7 +50,10 @@ bookingForm?.addEventListener("submit", (event) => {
   const appointmentDate = data.get("appointmentDate")?.toString().trim() || "";
   const appointmentTime = data.get("appointmentTime")?.toString().trim() || "Flexible";
   const message = data.get("message")?.toString().trim() || "";
+  const subject = "Appointment request";
   const body = [
+    "Appointment request",
+    "",
     `Full name: ${name}`,
     `Phone: ${phone}`,
     `Preferred consultation: ${consultation}`,
@@ -60,6 +63,9 @@ bookingForm?.addEventListener("submit", (event) => {
     "Support request:",
     message
   ].join("\n");
+  const whatsappUrl = `https://wa.me/27815494535?text=${encodeURIComponent(body)}`;
+  const emailUrl = `mailto:mabidilalapsychologist@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-  window.location.href = `mailto:mabidilalapsychologist@gmail.com?subject=${encodeURIComponent("Appointment request")}&body=${encodeURIComponent(body)}`;
+  window.open(whatsappUrl, "_blank", "noopener");
+  window.location.href = emailUrl;
 });
