@@ -1,6 +1,7 @@
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
 const bookingForm = document.querySelector("#booking-form");
+const reviewForm = document.querySelector("#review-form");
 const serviceCards = document.querySelectorAll(".service-card");
 const appointmentDateInputs = document.querySelectorAll('input[name="appointmentDate"]');
 
@@ -107,4 +108,29 @@ bookingForm?.addEventListener("submit", (event) => {
     .finally(() => {
       submitButton?.removeAttribute("disabled");
     });
+});
+
+reviewForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const data = new FormData(reviewForm);
+  const name = data.get("reviewName")?.toString().trim() || "";
+  const rating = data.get("reviewRating")?.toString().trim() || "";
+  const message = data.get("reviewMessage")?.toString().trim() || "";
+  const status = reviewForm.querySelector(".review-status");
+  const subject = "Website comment or review";
+  const body = [
+    "Website comment or review",
+    "",
+    `Name: ${name}`,
+    `Rating: ${rating}`,
+    "",
+    "Comment:",
+    message
+  ].join("\n");
+
+  if (status) {
+    status.textContent = "Opening email for review submission...";
+  }
+
+  window.location.href = `mailto:mabidilalapsychologist@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });

@@ -28,6 +28,7 @@
         <a href="about.html">About</a>
         <a href="services.html">Services</a>
         <a href="resources.html">Suggestions</a>
+        <a href="#reviews">Reviews</a>
         <a href="contact.html">Contact</a>
       </nav>
     </header>
@@ -107,13 +108,29 @@
             <h3>Life Adjustment</h3>
             <p>Support for academic, work, identity, and life-stage transitions when things feel unsettled.</p>
           </article>
+          <article class="service-card group-card" tabindex="0">
+            <figure class="service-picture" aria-label="Group counselling photo with chairs arranged for a supportive session">
+              <img src="assets/service-group-counselling.png" alt="Group counselling chairs arranged in a calm therapy room">
+              <figcaption>Shared support in a guided, confidential group space.</figcaption>
+            </figure>
+            <h3>Group Counselling</h3>
+            <p>Facilitated group sessions for shared concerns, emotional support, coping skills, and collective growth.</p>
+          </article>
+          <article class="service-card company-card" tabindex="0">
+            <figure class="service-picture" aria-label="Company group assessment photo for team building">
+              <img src="assets/service-company-assessment.png" alt="Professional team participating in a collaborative assessment session">
+              <figcaption>Workplace insight that supports healthier team dynamics.</figcaption>
+            </figure>
+            <h3>Company Group Assessment</h3>
+            <p>Team-focused group assessment for organisations seeking team building, communication insight, and workplace adjustment support.</p>
+          </article>
         </div>
       </section>
 
       <section id="clients" class="split-section">
         <div>
           <p class="eyebrow">Who We Serve</p>
-          <h2>Adolescents, adults, couples, and families.</h2>
+          <h2>Adolescents, adults, couples, families, groups, and organisations.</h2>
           <p>Appointments are available for people seeking self-referral, healthcare practitioner referral, or organisational referral.</p>
         </div>
         <div class="info-list" aria-label="Practice information">
@@ -150,11 +167,76 @@
             <span>Booking for someone else</span>
             <strong>Use referral guidance</strong>
           </a>
+          <a class="suggestion-card" href="services.html#company-assessment">
+            <span>Workplace team support</span>
+            <strong>Consider company group assessment</strong>
+          </a>
           <a class="suggestion-card urgent" href="resources.html#crisis">
             <span>Immediate safety concern</span>
             <strong>Use crisis and emergency support</strong>
           </a>
         </div>
+      </section>
+
+      <section id="location" class="location-section">
+        <div class="location-copy">
+          <p class="eyebrow">Pin Location</p>
+          <h2>Find the practice in Polokwane.</h2>
+          <p>In-person consultations are available at 288 Marshall Street, Polokwane. Online consultations are also available where appropriate.</p>
+          <a class="button primary" href="https://www.google.com/maps/search/?api=1&query=288%20Marshall%20Street%2C%20Polokwane">
+            <span class="button-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-13a7 7 0 0 0-14 0c0 6.8 7 13 7 13Z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+            </span>
+            Open Map
+          </a>
+        </div>
+        <div class="map-panel">
+          <iframe title="Map to 288 Marshall Street, Polokwane" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=288%20Marshall%20Street%2C%20Polokwane&output=embed"></iframe>
+        </div>
+      </section>
+
+      <section id="reviews" class="reviews-section">
+        <div class="section-heading">
+          <p class="eyebrow">Comments and Reviews</p>
+          <h2>Share feedback about your experience.</h2>
+        </div>
+        <div class="review-grid">
+          <article class="review-card">
+            <span>Confidential care</span>
+            <p>"A calm and respectful space for difficult conversations."</p>
+          </article>
+          <article class="review-card">
+            <span>Accessible support</span>
+            <p>"The online and in-person options make it easier to get help."</p>
+          </article>
+          <article class="review-card">
+            <span>Practical guidance</span>
+            <p>"Helpful support for stress, relationships, and life transitions."</p>
+          </article>
+        </div>
+        <form class="review-form" id="review-form">
+          <label>
+            Name
+            <input name="reviewName" type="text" autocomplete="name" required>
+          </label>
+          <label>
+            Rating
+            <select name="reviewRating" required>
+              <option value="">Select rating</option>
+              <option>5 - Excellent</option>
+              <option>4 - Very good</option>
+              <option>3 - Good</option>
+              <option>2 - Fair</option>
+              <option>1 - Needs attention</option>
+            </select>
+          </label>
+          <label>
+            Comment or review
+            <textarea name="reviewMessage" rows="4" required></textarea>
+          </label>
+          <button class="button primary" type="submit">Send Review</button>
+          <p class="review-status" role="status" aria-live="polite"></p>
+        </form>
       </section>
 
       <section id="appointments" class="appointment-section">
@@ -233,6 +315,9 @@
               <strong>mabidilalapsychologist@gmail.com</strong>
             </a>
             <a href="https://www.google.com/maps/search/?api=1&query=288%20Marshall%20Street%2C%20Polokwane">
+              <span class="contact-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24"><path d="M12 22s7-6.2 7-13a7 7 0 0 0-14 0c0 6.8 7 13 7 13Z"></path><circle cx="12" cy="9" r="2.5"></circle></svg>
+              </span>
               <span>Address</span>
               <strong>288 Marshall Street, Polokwane</strong>
             </a>
