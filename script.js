@@ -52,7 +52,7 @@ bookingForm?.addEventListener("submit", (event) => {
   const appointmentDate = data.get("appointmentDate")?.toString().trim() || "";
   const appointmentTime = data.get("appointmentTime")?.toString().trim() || "Flexible";
   const message = data.get("message")?.toString().trim() || "";
-  const subject = "Appointment request";
+  const subject = "Appointment at MC Mabidilala Clinical Psycology";
   const body = [
     "Appointment request",
     "",

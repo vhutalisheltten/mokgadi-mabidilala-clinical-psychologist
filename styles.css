@@ -151,8 +151,11 @@ img {
   min-height: calc(100vh - 76px);
   padding: clamp(42px, 7vw, 86px) clamp(18px, 5vw, 78px);
   background:
-    linear-gradient(120deg, rgba(223, 244, 251, 0.95), rgba(251, 252, 251, 0.72) 52%, rgba(223, 234, 222, 0.78)),
-    radial-gradient(circle at 92% 18%, rgba(189, 113, 94, 0.22), transparent 28%);
+    linear-gradient(120deg, rgba(251, 252, 251, 0.93), rgba(251, 252, 251, 0.76) 48%, rgba(223, 244, 251, 0.5)),
+    linear-gradient(0deg, rgba(24, 49, 63, 0.2), rgba(24, 49, 63, 0.06)),
+    url("assets/hero-background.png");
+  background-position: center;
+  background-size: cover;
 }
 
 .eyebrow {
@@ -324,6 +327,21 @@ h3 {
 .service-picture svg {
   width: 100%;
   height: 100%;
+}
+
+.service-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 240ms ease, filter 240ms ease;
+}
+
+.service-card:hover .service-picture img,
+.service-card:focus-visible .service-picture img,
+.service-card.is-active .service-picture img {
+  filter: saturate(1.06) contrast(1.02);
+  transform: scale(1.06);
 }
 
 .service-picture figcaption {
@@ -817,7 +835,7 @@ h3 {
 
 .service-detail {
   display: grid;
-  grid-template-columns: 74px minmax(0, 1fr);
+  grid-template-columns: 74px minmax(170px, 240px) minmax(0, 1fr);
   gap: 22px;
   align-items: start;
   padding: clamp(22px, 4vw, 32px);
@@ -835,6 +853,14 @@ h3 {
   color: #fff;
   background: var(--blue);
   font-weight: 900;
+}
+
+.service-detail-image {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 12px 28px rgba(24, 49, 63, 0.1);
 }
 
 .service-detail a {
@@ -1130,5 +1156,10 @@ textarea:focus {
 
   .service-detail {
     grid-template-columns: 1fr;
+  }
+
+  .service-detail > span {
+    width: 52px;
+    height: 52px;
   }
 }
