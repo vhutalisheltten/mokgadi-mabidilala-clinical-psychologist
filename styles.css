@@ -210,6 +210,17 @@ h3 {
   margin-top: 28px;
 }
 
+.form-status {
+  min-height: 28px;
+  margin: 4px 0 0;
+  color: var(--blue-dark);
+  font-weight: 800;
+}
+
+.form-status.error {
+  color: #9a3f34;
+}
+
 .button {
   display: inline-flex;
   align-items: center;
