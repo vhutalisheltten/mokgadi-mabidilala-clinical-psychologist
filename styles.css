@@ -228,6 +228,7 @@ h3 {
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: 9px;
   min-height: 48px;
   padding: 12px 20px;
   border: 1px solid transparent;
@@ -256,6 +257,43 @@ h3 {
   color: var(--blue-dark);
   background: #fff;
   border-color: var(--line);
+}
+
+.button-icon,
+.contact-icon {
+  display: inline-grid;
+  place-items: center;
+  flex: 0 0 auto;
+}
+
+.button-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.button-icon svg,
+.contact-icon svg {
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.contact-icon {
+  width: 42px;
+  height: 42px;
+  margin-bottom: 8px;
+  border-radius: 50%;
+  color: var(--blue-dark);
+  background: var(--sky);
+}
+
+.contact-icon svg {
+  width: 23px;
+  height: 23px;
 }
 
 .hero-media {
