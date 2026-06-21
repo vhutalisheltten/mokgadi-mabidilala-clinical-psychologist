@@ -91,7 +91,7 @@ img {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(16px, 3vw, 34px);
+  gap: clamp(12px, 2vw, 24px);
   color: var(--muted);
   font-weight: 700;
 }
@@ -1172,6 +1172,150 @@ textarea:focus {
   overflow-wrap: anywhere;
 }
 
+.inline-link {
+  color: #97d7ec;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.payment-logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.page-payment-row {
+  margin-top: 22px;
+}
+
+.payment-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 82px;
+  min-height: 46px;
+  padding: 8px 12px;
+  border: 1px solid rgba(24, 49, 63, 0.12);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(24, 49, 63, 0.1);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.visa-badge {
+  color: #183c8c;
+  font-size: 1.25rem;
+  font-style: italic;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.mastercard-badge {
+  position: relative;
+  min-width: 132px;
+  gap: 0;
+  color: #202734;
+}
+
+.mastercard-badge span {
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+}
+
+.mastercard-badge span:first-child {
+  background: #eb001b;
+}
+
+.mastercard-badge span:nth-child(2) {
+  margin-left: -12px;
+  background: rgba(247, 158, 27, 0.9);
+}
+
+.mastercard-badge b {
+  margin-left: 8px;
+  font-size: 0.82rem;
+}
+
+.medical-aids-section {
+  padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 78px);
+  background: #fff;
+}
+
+.medical-aids-toolbar {
+  display: grid;
+  grid-template-columns: minmax(220px, 1fr) auto;
+  gap: 14px;
+  align-items: end;
+  margin-bottom: 16px;
+}
+
+.medical-aids-search {
+  max-width: 620px;
+}
+
+.medical-aids-status,
+.source-note {
+  color: var(--muted);
+}
+
+.medical-aids-status {
+  margin: 0 0 14px;
+  font-weight: 800;
+}
+
+.medical-aids-table-wrap {
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 30px rgba(24, 49, 63, 0.06);
+}
+
+.medical-aids-table {
+  width: 100%;
+  min-width: 760px;
+  border-collapse: collapse;
+}
+
+.medical-aids-table th,
+.medical-aids-table td {
+  padding: 14px 16px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.medical-aids-table th {
+  color: #fff;
+  background: var(--ink);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.medical-aids-table td:first-child {
+  font-weight: 900;
+}
+
+.medical-aids-table tr:nth-child(even) td {
+  background: var(--paper);
+}
+
+.medical-aids-table tr.is-hidden {
+  display: none;
+}
+
+.source-note {
+  max-width: 920px;
+  margin: 18px 0 0;
+  font-size: 0.95rem;
+}
+
 .site-footer {
   padding: 28px clamp(18px, 5vw, 78px);
   color: rgba(255, 255, 255, 0.78);
@@ -1411,7 +1555,8 @@ textarea:focus {
   .appointment-section,
   .location-section,
   .caption-panel,
-  .social-cta {
+  .social-cta,
+  .medical-aids-toolbar {
     grid-template-columns: 1fr;
   }
 

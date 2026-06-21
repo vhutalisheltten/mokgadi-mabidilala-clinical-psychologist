@@ -142,6 +142,11 @@
           <div>
             <strong>Payment Options</strong>
             <span>Medical aid, cash, Visa, and Mastercard accepted</span>
+            <span class="payment-logo-row" aria-label="Accepted card payments">
+              <span class="payment-badge visa-badge">Visa</span>
+              <span class="payment-badge mastercard-badge"><span></span><span></span><b>Mastercard</b></span>
+            </span>
+            <a class="inline-link" href="#medical-aids">View medical aids list</a>
           </div>
           <div>
             <strong>Location</strong>
@@ -324,6 +329,107 @@
             </a>
           </div>
         </div>
+      </section>
+
+      <section id="medical-aids" class="medical-aids-section">
+        <div class="section-heading">
+          <p class="eyebrow">Medical Aids Accepted</p>
+          <h2>South African medical schemes list.</h2>
+          <p>This list is refreshed from the Council for Medical Schemes live registry when available. Please confirm your benefits, authorisation requirements, and available cover with your medical scheme before your appointment.</p>
+        </div>
+        <div class="medical-aids-toolbar">
+          <label class="medical-aids-search">
+            Search medical aid
+            <input id="medical-aids-search" type="search" placeholder="Search by scheme name or type">
+          </label>
+          <a class="button secondary" href="https://www.medicalschemes.co.za/regulated-entities/medical-schemes-in-south-africa/">Open CMS Registry</a>
+        </div>
+        <p class="medical-aids-status" id="medical-aids-status" role="status" aria-live="polite">Showing saved CMS list while checking the live registry...</p>
+        <div class="medical-aids-table-wrap">
+          <table class="medical-aids-table">
+            <thead>
+              <tr>
+                <th>Medical Scheme</th>
+                <th>Type</th>
+                <th>Telephone</th>
+                <th>Registered On</th>
+              </tr>
+            </thead>
+            <tbody id="medical-aids-table-body">
+              <tr><td>AECI Medical Aid Society</td><td>Restricted</td><td>0860002103</td><td>Feb 11, 1971</td></tr>
+              <tr><td>Alliance-Midmed Medical Scheme</td><td>Restricted</td><td>0860002101</td><td>Aug 30, 1976</td></tr>
+              <tr><td>Anglo Medical Scheme</td><td>Restricted</td><td>0860222633</td><td>Oct 16, 1968</td></tr>
+              <tr><td>Anglovaal Group Medical Scheme</td><td>Restricted</td><td>0860100693</td><td>Jul 28, 1997</td></tr>
+              <tr><td>Bankmed</td><td>Restricted</td><td>08002265633</td><td>Jun 29, 1972</td></tr>
+              <tr><td>Barloworld Medical Scheme</td><td>Restricted</td><td>0860002106</td><td>Dec 01, 1980</td></tr>
+              <tr><td>Bestmed Medical Scheme</td><td>Open</td><td></td><td>Aug 11, 1971</td></tr>
+              <tr><td>BMW Employees Medical Aid Society</td><td>Restricted</td><td>0860002107</td><td>Jan 13, 1984</td></tr>
+              <tr><td>Bonitas Medical Fund</td><td>Open</td><td>0113845100</td><td>Mar 01, 1982</td></tr>
+              <tr><td>BP Medical Aid Society</td><td>Restricted</td><td></td><td>Feb 20, 1968</td></tr>
+              <tr><td>Building &amp; Construction Industry Medical Aid Fund</td><td>Restricted</td><td>0112081000</td><td>Aug 02, 2001</td></tr>
+              <tr><td>Cape Medical Plan</td><td>Open</td><td>0219378300</td><td>Nov 11, 1971</td></tr>
+              <tr><td>Chartered Accountants (SA) Medical Aid Fund (CAMAF)</td><td>Restricted</td><td>0861700600</td><td>Jun 08, 1971</td></tr>
+              <tr><td>Compcare Medical Scheme</td><td>Open</td><td>0112081000</td><td>Jun 01, 1978</td></tr>
+              <tr><td>Consumer Goods Medical Scheme</td><td>Restricted</td><td>0112081000</td><td>Jun 01, 1993</td></tr>
+              <tr><td>De Beers Benefit Society</td><td>Restricted</td><td>0538073111</td><td>May 29, 1969</td></tr>
+              <tr><td>Discovery Health Medical Scheme</td><td>Open</td><td></td><td>Oct 08, 1971</td></tr>
+              <tr><td>Engen Medical Benefit Fund</td><td>Restricted</td><td>0800001615</td><td>Aug 07, 1997</td></tr>
+              <tr><td>Fedhealth Medical Scheme</td><td>Open</td><td>0860002153</td><td>Nov 26, 1969</td></tr>
+              <tr><td>Fishing Industry Medical Scheme (Fishmed)</td><td>Restricted</td><td>0214029927</td><td>Oct 20, 1967</td></tr>
+              <tr><td>Foodmed Medical Scheme</td><td>Restricted</td><td>0219303550</td><td>Oct 20, 1967</td></tr>
+              <tr><td>Genesis Medical Scheme</td><td>Open</td><td>0214429900</td><td>May 25, 1995</td></tr>
+              <tr><td>Glencore Medical Scheme</td><td>Restricted</td><td>0860002141</td><td>Aug 07, 1968</td></tr>
+              <tr><td>Golden Arrow Employees' Medical Benefit Fund</td><td>Restricted</td><td>0860104122</td><td>Jun 30, 1972</td></tr>
+              <tr><td>Government Employees Medical Scheme (GEMS)</td><td>Restricted</td><td>0861114367</td><td>Jan 01, 2005</td></tr>
+              <tr><td>Horizon Medical Scheme</td><td>Restricted</td><td>0860101103</td><td>Sep 11, 1996</td></tr>
+              <tr><td>Impala Medical Plan</td><td>Restricted</td><td>0145694748</td><td>Jul 15, 2002</td></tr>
+              <tr><td>Imperial and Motus Medical Aid</td><td>Restricted</td><td>0860105221</td><td>Dec 01, 1995</td></tr>
+              <tr><td>Keyhealth</td><td>Open</td><td>0126672250</td><td>May 28, 1968</td></tr>
+              <tr><td>LA-Health Medical Scheme</td><td>Restricted</td><td>0219142103</td><td>Jan 10, 1968</td></tr>
+              <tr><td>Libcare Medical Scheme</td><td>Restricted</td><td>0800122273</td><td>Feb 20, 1969</td></tr>
+              <tr><td>Makoti Medical Scheme</td><td>Open</td><td>0112081000</td><td>Sep 07, 1976</td></tr>
+              <tr><td>Malcor Medical Scheme</td><td>Restricted</td><td>0860100698</td><td>May 18, 1994</td></tr>
+              <tr><td>Massmart Health Plan</td><td>Restricted</td><td>0860002117</td><td>Oct 20, 1978</td></tr>
+              <tr><td>MBMed Medical Aid Fund</td><td>Restricted</td><td>0860002109</td><td>Dec 05, 1969</td></tr>
+              <tr><td>Medihelp</td><td>Open</td><td>0860100678</td><td>Jun 23, 1969</td></tr>
+              <tr><td>Medimed Medical Scheme</td><td>Open</td><td>0413954400</td><td>Sep 12, 1980</td></tr>
+              <tr><td>Medipos Medical Scheme</td><td>Restricted</td><td>0860100078</td><td>Jun 15, 1994</td></tr>
+              <tr><td>Medshield Medical Scheme</td><td>Open</td><td>0105974701</td><td>Feb 06, 1968</td></tr>
+              <tr><td>Momentum Medical Scheme</td><td>Open</td><td>0860117859</td><td>May 06, 1971</td></tr>
+              <tr><td>Motohealth Care</td><td>Restricted</td><td>0861329800</td><td>Oct 01, 2007</td></tr>
+              <tr><td>Multichoice Medical Aid Scheme</td><td>Restricted</td><td>0860116633</td><td>Mar 07, 1972</td></tr>
+              <tr><td>Netcare Medical Scheme</td><td>Restricted</td><td>0113010000</td><td>Dec 19, 2000</td></tr>
+              <tr><td>Old Mutual Staff Medical Aid Fund</td><td>Restricted</td><td>0860100076</td><td>Feb 13, 1969</td></tr>
+              <tr><td>Parmed Medical Aid Scheme</td><td>Restricted</td><td>0860002126</td><td>Mar 29, 1974</td></tr>
+              <tr><td>PG Group Medical Scheme</td><td>Restricted</td><td>0114175800</td><td>Nov 20, 1970</td></tr>
+              <tr><td>Pick n Pay Medical Scheme</td><td>Restricted</td><td>0800004389</td><td>May 09, 1996</td></tr>
+              <tr><td>Platinum Health</td><td>Restricted</td><td>0874630660</td><td>Dec 19, 2000</td></tr>
+              <tr><td>Profmed</td><td>Restricted</td><td>0116288900</td><td>Aug 10, 1969</td></tr>
+              <tr><td>Rand Water Medical Scheme</td><td>Restricted</td><td>0116820985</td><td>Oct 24, 1969</td></tr>
+              <tr><td>Remedi Medical Aid Scheme</td><td>Restricted</td><td>0860116116</td><td>Sep 18, 1972</td></tr>
+              <tr><td>Retail Medical Scheme</td><td>Restricted</td><td>0860101252</td><td>Feb 10, 1970</td></tr>
+              <tr><td>Rhodes University Medical Scheme</td><td>Restricted</td><td>0861727773</td><td>Dec 15, 1967</td></tr>
+              <tr><td>SABC Medical Aid Scheme</td><td>Restricted</td><td>0860002136</td><td>Jun 23, 1972</td></tr>
+              <tr><td>SAMWUMED</td><td>Restricted</td><td>0216979000</td><td>Nov 11, 1968</td></tr>
+              <tr><td>Sasolmed</td><td>Restricted</td><td>0860002134</td><td>Feb 17, 1971</td></tr>
+              <tr><td>Sedmed</td><td>Restricted</td><td></td><td>Feb 19, 1987</td></tr>
+              <tr><td>Sisonke Health Medical Scheme</td><td>Restricted</td><td>0413954400</td><td>Jan 15, 1997</td></tr>
+              <tr><td>Sizwe Hosmed Medical Scheme</td><td>Open</td><td>0112981500</td><td>Mar 17, 1978</td></tr>
+              <tr><td>South African Breweries Medical Aid Scheme (SABMAS)</td><td>Restricted</td><td>0860002133</td><td>Sep 01, 1970</td></tr>
+              <tr><td>South African Police Service Medical Scheme (POLMED)</td><td>Restricted</td><td>0128187500</td><td>Nov 01, 1999</td></tr>
+              <tr><td>Suremed Health</td><td>Open</td><td>0860080888</td><td>Aug 20, 1976</td></tr>
+              <tr><td>TFG Medical Aid Scheme</td><td>Restricted</td><td>0860123077</td><td>Nov 18, 1998</td></tr>
+              <tr><td>Thebemed</td><td>Open</td><td>0115448899</td><td>Sep 12, 2002</td></tr>
+              <tr><td>Transmed Medical Fund</td><td>Restricted</td><td>0800450010</td><td>Nov 22, 2000</td></tr>
+              <tr><td>Tsogo Sun Group Medical Scheme</td><td>Restricted</td><td>0860100421</td><td>Jul 30, 1999</td></tr>
+              <tr><td>Umvuzo Health Medical Scheme</td><td>Restricted</td><td>0128450000</td><td>Jul 01, 2004</td></tr>
+              <tr><td>University of Kwa-Zulu Natal Medical Scheme</td><td>Restricted</td><td>0860113322</td><td>Jul 01, 1983</td></tr>
+              <tr><td>Witbank Coalfields Medical Aid Scheme</td><td>Restricted</td><td>0136561407</td><td>Apr 30, 1969</td></tr>
+              <tr><td>Wooltru Healthcare Fund</td><td>Restricted</td><td>0802228922</td><td>Dec 12, 1969</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="source-note">Source: Council for Medical Schemes regulated entities registry and public API. OPMED is separately noted on the CMS registry and is not included in this table. Medical aid acceptance remains subject to benefit confirmation and authorisation by the scheme.</p>
       </section>
     </main>
 
