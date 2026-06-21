@@ -4,9 +4,15 @@ const bookingForm = document.querySelector("#booking-form");
 const reviewForm = document.querySelector("#review-form");
 const serviceCards = document.querySelectorAll(".service-card");
 const appointmentDateInputs = document.querySelectorAll('input[name="appointmentDate"]');
+const bookingForms = document.querySelectorAll(".booking-form");
 const medicalAidsTableBody = document.querySelector("#medical-aids-table-body");
 const medicalAidsStatus = document.querySelector("#medical-aids-status");
 const medicalAidsSearch = document.querySelector("#medical-aids-search");
+const unavailableSlotStorageKey = "mokgadiMabidilalaBookedSlots";
+const manuallyUnavailableSlots = [
+  // Add confirmed unavailable slots here in "YYYY-MM-DDTHH:MM" format.
+  // Example: "2026-07-05T10:00"
+];
 
 const today = new Date();
 const timezoneOffset = today.getTimezoneOffset() * 60000;
@@ -14,6 +20,61 @@ const localToday = new Date(today.getTime() - timezoneOffset).toISOString().spli
 
 appointmentDateInputs.forEach((input) => {
   input.setAttribute("min", localToday);
+});
+
+const getStoredUnavailableSlots = () => {
+  try {
+    return JSON.parse(localStorage.getItem(unavailableSlotStorageKey)) || [];
+  } catch {
+    return [];
+  }
+};
+
+const getUnavailableSlots = () => new Set([...manuallyUnavailableSlots, ...getStoredUnavailableSlots()]);
+
+const getSlotKey = (form) => {
+  const data = new FormData(form);
+  const appointmentDate = data.get("appointmentDate")?.toString().trim();
+  const appointmentTime = data.get("appointmentTime")?.toString().trim();
+
+  if (!appointmentDate || !appointmentTime) {
+    return "";
+  }
+
+  return `${appointmentDate}T${appointmentTime}`;
+};
+
+const saveUnavailableSlot = (slotKey) => {
+  if (!slotKey) {
+    return;
+  }
+
+  const slots = getUnavailableSlots();
+  slots.add(slotKey);
+  localStorage.setItem(unavailableSlotStorageKey, JSON.stringify([...slots]));
+};
+
+const updateSlotAvailability = (form) => {
+  const slotKey = getSlotKey(form);
+  const submitButton = form.querySelector('button[type="submit"]');
+  const status = form.querySelector(".form-status");
+  const isUnavailable = Boolean(slotKey && getUnavailableSlots().has(slotKey));
+
+  submitButton?.toggleAttribute("disabled", isUnavailable);
+  status?.classList.toggle("error", isUnavailable);
+
+  if (status && isUnavailable) {
+    status.textContent = "This date and time is already booked. Please choose another appointment slot.";
+  } else if (status?.textContent === "This date and time is already booked. Please choose another appointment slot.") {
+    status.textContent = "";
+  }
+
+  return !isUnavailable;
+};
+
+bookingForms.forEach((form) => {
+  form.querySelector('input[name="appointmentDate"]')?.addEventListener("change", () => updateSlotAvailability(form));
+  form.querySelector('input[name="appointmentTime"]')?.addEventListener("change", () => updateSlotAvailability(form));
 });
 
 navToggle?.addEventListener("click", () => {
@@ -56,6 +117,7 @@ bookingForm?.addEventListener("submit", (event) => {
   const appointmentDate = data.get("appointmentDate")?.toString().trim() || "";
   const appointmentTime = data.get("appointmentTime")?.toString().trim() || "Flexible";
   const message = data.get("message")?.toString().trim() || "";
+  const slotKey = getSlotKey(bookingForm);
   const subject = "Appointment at MC Mabidilala Clinical Psycology";
   const body = [
     "Appointment request",
@@ -71,6 +133,10 @@ bookingForm?.addEventListener("submit", (event) => {
   ].join("\n");
   const whatsappUrl = `https://wa.me/27815494535?text=${encodeURIComponent(body)}`;
   const emailUrl = `mailto:mabidilalapsychologist@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+  if (!updateSlotAvailability(bookingForm)) {
+    return;
+  }
 
   data.append("_subject", subject);
   data.append("_template", "box");
@@ -97,6 +163,7 @@ bookingForm?.addEventListener("submit", (event) => {
       return response.json();
     })
     .then(() => {
+      saveUnavailableSlot(slotKey);
       bookingForm.reset();
       if (status) {
         status.textContent = "Booking request sent. The practice will respond to confirm availability.";
