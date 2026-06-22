@@ -1199,23 +1199,117 @@ textarea:focus {
   background: #fff;
 }
 
-.medical-aids-summary {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
+.medical-aid-logos {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(118px, 1fr));
+  gap: 12px;
   margin-top: 24px;
 }
 
-.medical-aids-summary span {
-  display: inline-flex;
+.medical-aid-logo {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
   align-items: center;
-  min-height: 40px;
-  padding: 8px 14px;
+  min-height: 88px;
+  gap: 4px 10px;
+  padding: 16px;
   border: 1px solid var(--line);
-  border-radius: 999px;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 10px 26px rgba(24, 49, 63, 0.06);
+  font-weight: 900;
+}
+
+.medical-aid-logo strong,
+.medical-aid-logo small {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  line-height: 1;
+}
+
+.medical-aid-logo strong {
+  font-size: clamp(0.98rem, 1.4vw, 1.2rem);
+}
+
+.medical-aid-logo small {
+  grid-column: 2;
+  color: var(--muted);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.medical-aid-logo .logo-symbol {
+  display: inline-grid;
+  place-items: center;
+  grid-row: span 2;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  color: #fff;
+  font-weight: 900;
+}
+
+.discovery-logo {
+  color: #003f7d;
+}
+
+.discovery-logo .logo-symbol {
+  background:
+    radial-gradient(circle at 65% 38%, #f7a51d 0 25%, transparent 27%),
+    linear-gradient(135deg, #00a3e0 0 48%, #003f7d 50% 100%);
+}
+
+.bonitas-logo {
+  grid-template-columns: 1fr;
+  color: #d71920;
+  font-size: 1.2rem;
+  text-transform: lowercase;
+}
+
+.fedhealth-logo {
+  color: #007c89;
+}
+
+.fedhealth-logo .logo-symbol {
+  background: #007c89;
+}
+
+.gems-logo {
+  color: #194f90;
+}
+
+.gems-logo .logo-symbol {
+  border-radius: 8px;
+  background:
+    linear-gradient(45deg, transparent 0 22%, #f2c230 22% 48%, transparent 48% 100%),
+    #194f90;
+  transform: rotate(45deg);
+}
+
+.momentum-logo {
+  grid-template-columns: 1fr;
+  color: #b5121b;
+}
+
+.momentum-logo small {
+  grid-column: 1;
+}
+
+.medihelp-logo {
+  color: #006db6;
+}
+
+.medihelp-logo .logo-symbol {
+  background:
+    linear-gradient(90deg, #006db6 0 50%, #50b848 50% 100%);
+}
+
+.others-logo {
+  grid-template-columns: 1fr;
   color: var(--blue-dark);
   background: var(--sky);
-  font-weight: 900;
 }
 
 .site-footer {
@@ -1247,6 +1341,7 @@ textarea:focus {
 
   .service-grid,
   .contact-links,
+  .medical-aid-logos,
   .content-grid,
   .resource-grid,
   .review-grid {
@@ -1310,6 +1405,7 @@ textarea:focus {
 
   .service-grid,
   .contact-links,
+  .medical-aid-logos,
   .content-grid,
   .resource-grid,
   .review-grid {
