@@ -768,58 +768,6 @@ h3 {
   color: var(--muted);
 }
 
-.suggestions-preview {
-  background: #fff;
-}
-
-.suggestion-grid {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 14px;
-}
-
-.suggestion-card {
-  display: grid;
-  gap: 10px;
-  min-height: 154px;
-  padding: 22px;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: var(--paper);
-  transition: transform 160ms ease, border-color 160ms ease, box-shadow 160ms ease;
-}
-
-.suggestion-card:hover,
-.suggestion-card:focus-visible {
-  border-color: var(--blue);
-  box-shadow: 0 16px 32px rgba(24, 49, 63, 0.1);
-  transform: translateY(-3px);
-  outline: none;
-}
-
-.suggestion-card span {
-  color: var(--coral);
-  font-size: 0.78rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.suggestion-card strong {
-  align-self: end;
-  font-size: 1.08rem;
-  line-height: 1.25;
-}
-
-.suggestion-card.urgent {
-  color: #fff;
-  background: var(--ink);
-}
-
-.suggestion-card.urgent span {
-  color: #97d7ec;
-}
-
 .page-hero {
   padding: clamp(58px, 8vw, 110px) clamp(18px, 5vw, 78px);
   background:
@@ -1136,6 +1084,11 @@ textarea:focus {
   gap: 14px;
 }
 
+.appointment-contact-links {
+  grid-template-columns: 1fr;
+  margin-top: 22px;
+}
+
 .contact-links a {
   display: grid;
   gap: 8px;
@@ -1246,74 +1199,23 @@ textarea:focus {
   background: #fff;
 }
 
-.medical-aids-toolbar {
-  display: grid;
-  grid-template-columns: minmax(220px, 1fr) auto;
-  gap: 14px;
-  align-items: end;
-  margin-bottom: 16px;
+.medical-aids-summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 24px;
 }
 
-.medical-aids-search {
-  max-width: 620px;
-}
-
-.medical-aids-status,
-.source-note {
-  color: var(--muted);
-}
-
-.medical-aids-status {
-  margin: 0 0 14px;
-  font-weight: 800;
-}
-
-.medical-aids-table-wrap {
-  overflow-x: auto;
+.medical-aids-summary span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  padding: 8px 14px;
   border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #fff;
-  box-shadow: 0 10px 30px rgba(24, 49, 63, 0.06);
-}
-
-.medical-aids-table {
-  width: 100%;
-  min-width: 760px;
-  border-collapse: collapse;
-}
-
-.medical-aids-table th,
-.medical-aids-table td {
-  padding: 14px 16px;
-  border-bottom: 1px solid var(--line);
-  text-align: left;
-  vertical-align: top;
-}
-
-.medical-aids-table th {
-  color: #fff;
-  background: var(--ink);
-  font-size: 0.78rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.medical-aids-table td:first-child {
+  border-radius: 999px;
+  color: var(--blue-dark);
+  background: var(--sky);
   font-weight: 900;
-}
-
-.medical-aids-table tr:nth-child(even) td {
-  background: var(--paper);
-}
-
-.medical-aids-table tr.is-hidden {
-  display: none;
-}
-
-.source-note {
-  max-width: 920px;
-  margin: 18px 0 0;
-  font-size: 0.95rem;
 }
 
 .site-footer {
@@ -1330,8 +1232,7 @@ textarea:focus {
   .hero,
   .split-section,
   .appointment-section,
-  .location-section,
-  .medical-aids-toolbar {
+  .location-section {
     grid-template-columns: 1fr;
   }
 
@@ -1346,7 +1247,6 @@ textarea:focus {
 
   .service-grid,
   .contact-links,
-  .suggestion-grid,
   .content-grid,
   .resource-grid,
   .review-grid {
@@ -1410,11 +1310,9 @@ textarea:focus {
 
   .service-grid,
   .contact-links,
-  .suggestion-grid,
   .content-grid,
   .resource-grid,
-  .review-grid,
-  .medical-aids-toolbar {
+  .review-grid {
     grid-template-columns: 1fr;
   }
 

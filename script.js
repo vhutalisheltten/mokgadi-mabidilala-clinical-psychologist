@@ -5,9 +5,6 @@ const reviewForm = document.querySelector("#review-form");
 const serviceCards = document.querySelectorAll(".service-card");
 const appointmentDateInputs = document.querySelectorAll('input[name="appointmentDate"]');
 const bookingForms = document.querySelectorAll(".booking-form");
-const medicalAidsTableBody = document.querySelector("#medical-aids-table-body");
-const medicalAidsStatus = document.querySelector("#medical-aids-status");
-const medicalAidsSearch = document.querySelector("#medical-aids-search");
 const unavailableSlotStorageKey = "mokgadiMabidilalaBookedSlots";
 const manuallyUnavailableSlots = [
   // Add confirmed unavailable slots here in "YYYY-MM-DDTHH:MM" format.
@@ -204,65 +201,3 @@ reviewForm?.addEventListener("submit", (event) => {
 
   window.location.href = `mailto:mabidilalapsychologist@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
-
-const escapeHtml = (value) =>
-  String(value)
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-
-const renderMedicalAidRows = (schemes) => {
-  if (!medicalAidsTableBody) {
-    return;
-  }
-
-  medicalAidsTableBody.innerHTML = schemes
-    .map((scheme) => {
-      const name = scheme["Scheme Name"] || "";
-      const type = scheme["Scheme Type"] || "";
-      const telephone = scheme.Telephone || "";
-      const registered = scheme["Registration Date"] || "";
-
-      return `<tr><td>${escapeHtml(name)}</td><td>${escapeHtml(type)}</td><td>${escapeHtml(telephone)}</td><td>${escapeHtml(registered)}</td></tr>`;
-    })
-    .join("");
-};
-
-const filterMedicalAidRows = () => {
-  const query = medicalAidsSearch?.value.trim().toLowerCase() || "";
-  const rows = medicalAidsTableBody?.querySelectorAll("tr") || [];
-
-  rows.forEach((row) => {
-    row.classList.toggle("is-hidden", !row.textContent.toLowerCase().includes(query));
-  });
-};
-
-if (medicalAidsTableBody) {
-  fetch("https://api.medicalschemes.co.za/medschemes")
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("CMS registry unavailable.");
-      }
-      return response.json();
-    })
-    .then((schemes) => {
-      const publicSchemes = schemes
-        .filter((scheme) => scheme["Scheme Type"] !== "Test")
-        .sort((a, b) => a["Scheme Name"].localeCompare(b["Scheme Name"]));
-
-      renderMedicalAidRows(publicSchemes);
-      filterMedicalAidRows();
-      if (medicalAidsStatus) {
-        medicalAidsStatus.textContent = `Live CMS registry loaded: ${publicSchemes.length} registered medical schemes.`;
-      }
-    })
-    .catch(() => {
-      if (medicalAidsStatus) {
-        medicalAidsStatus.textContent = "Showing saved CMS list. Use the CMS Registry button for the latest official details.";
-      }
-    });
-
-  medicalAidsSearch?.addEventListener("input", filterMedicalAidRows);
-}
