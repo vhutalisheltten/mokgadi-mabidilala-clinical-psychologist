@@ -92,6 +92,7 @@ img {
   display: flex;
   align-items: center;
   gap: clamp(12px, 2vw, 24px);
+  margin-left: auto;
   color: var(--muted);
   font-weight: 700;
 }
@@ -141,6 +142,30 @@ img {
   height: 2px;
   margin: 5px auto;
   background: var(--ink);
+}
+
+.header-booking-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  margin-left: clamp(12px, 2vw, 22px);
+  padding: 10px 16px;
+  border-radius: 8px;
+  color: #fff;
+  background: var(--coral);
+  box-shadow: 0 10px 22px rgba(189, 113, 94, 0.22);
+  font-weight: 900;
+  white-space: nowrap;
+  transition: transform 150ms ease, background 150ms ease, box-shadow 150ms ease;
+}
+
+.header-booking-button:hover,
+.header-booking-button:focus-visible {
+  background: #a85d4d;
+  box-shadow: 0 14px 28px rgba(189, 113, 94, 0.3);
+  transform: translateY(-1px);
+  outline: none;
 }
 
 .hero {
@@ -953,6 +978,15 @@ h3 {
   background: linear-gradient(180deg, #fff, var(--sky));
 }
 
+.pinned-appointment-section {
+  scroll-margin-top: 92px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(223, 244, 251, 0.86), rgba(255, 255, 255, 0.94)),
+    var(--sky);
+}
+
 .booking-form,
 .review-form {
   display: grid;
@@ -1327,8 +1361,21 @@ textarea:focus {
     display: none;
   }
 
+  .brand strong {
+    max-width: 160px;
+    font-size: 0.92rem;
+  }
+
   .nav-toggle {
     display: block;
+    margin-left: auto;
+  }
+
+  .header-booking-button {
+    min-height: 42px;
+    margin-left: 8px;
+    padding: 9px 12px;
+    font-size: 0.84rem;
   }
 
   .site-nav {
