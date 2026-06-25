@@ -61,14 +61,19 @@ img {
 .brand-mark {
   display: grid;
   place-items: center;
-  width: 44px;
-  height: 44px;
-  flex: 0 0 44px;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
   border-radius: 50%;
-  color: #fff;
-  background: var(--blue);
-  font-weight: 800;
-  letter-spacing: 0;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(24, 49, 63, 0.1);
+  overflow: hidden;
+}
+
+.brand-mark img {
+  width: 43px;
+  height: 43px;
+  object-fit: contain;
 }
 
 .brand strong,
@@ -181,6 +186,19 @@ img {
     url("assets/hero-background.png");
   background-position: center;
   background-size: cover;
+}
+
+.hero-logo {
+  width: min(100%, 640px);
+  max-height: 128px;
+  margin: 0 0 24px;
+  object-fit: contain;
+  object-position: left center;
+  padding: 14px 18px;
+  border: 1px solid rgba(214, 226, 230, 0.86);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.82);
+  box-shadow: 0 14px 34px rgba(24, 49, 63, 0.08);
 }
 
 .eyebrow {
@@ -1338,6 +1356,10 @@ textarea:focus {
     max-width: 390px;
   }
 
+  .hero-logo {
+    max-height: 112px;
+  }
+
   .service-grid,
   .contact-links,
   .medical-aid-logos,
@@ -1364,6 +1386,17 @@ textarea:focus {
   .brand strong {
     max-width: 160px;
     font-size: 0.92rem;
+  }
+
+  .brand-mark {
+    width: 42px;
+    height: 42px;
+    flex-basis: 42px;
+  }
+
+  .brand-mark img {
+    width: 38px;
+    height: 38px;
   }
 
   .nav-toggle {
@@ -1413,6 +1446,11 @@ textarea:focus {
 
   .button {
     width: 100%;
+  }
+
+  .hero-logo {
+    max-height: 92px;
+    padding: 10px 12px;
   }
 
   .service-grid,
