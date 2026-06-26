@@ -1347,6 +1347,10 @@ textarea:focus {
   line-height: 1;
 }
 
+.info-list .payment-badge {
+  color: #202734;
+}
+
 .payment-badge b {
   color: inherit;
 }
@@ -1369,39 +1373,30 @@ textarea:focus {
   font-weight: 900;
 }
 
-.visa-badge b {
-  color: #183c8c;
-  font-size: 1.25rem;
-  font-style: italic;
-  letter-spacing: 0.03em;
-  text-transform: uppercase;
+.info-list .cash-icon {
+  color: #fff;
+}
+
+.card-logo-badge {
+  min-width: 122px;
+  min-height: 54px;
+  padding: 10px 18px;
+}
+
+.payment-logo-img {
+  display: block;
+  width: 86px;
+  max-width: 100%;
+  max-height: 32px;
+  object-fit: contain;
 }
 
 .mastercard-badge {
-  position: relative;
-  min-width: 132px;
-  gap: 0;
-  color: #202734;
+  min-width: 150px;
 }
 
-.mastercard-badge span {
-  width: 31px;
-  height: 31px;
-  border-radius: 50%;
-}
-
-.mastercard-badge span:first-child {
-  background: #eb001b;
-}
-
-.mastercard-badge span:nth-child(2) {
-  margin-left: -12px;
-  background: rgba(247, 158, 27, 0.9);
-}
-
-.mastercard-badge b {
-  margin-left: 8px;
-  font-size: 0.82rem;
+.mastercard-logo {
+  width: 118px;
 }
 
 .medical-aids-section {
