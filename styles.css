@@ -1342,11 +1342,34 @@ textarea:focus {
   border-radius: 8px;
   background: #fff;
   box-shadow: 0 8px 20px rgba(24, 49, 63, 0.1);
+  color: #202734;
   font-weight: 900;
   line-height: 1;
 }
 
-.visa-badge {
+.payment-badge b {
+  color: inherit;
+}
+
+.cash-badge {
+  gap: 8px;
+  color: #234e5f;
+}
+
+.cash-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  background: #2f6f87;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.visa-badge b {
   color: #183c8c;
   font-size: 1.25rem;
   font-style: italic;
