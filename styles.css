@@ -1558,6 +1558,8 @@ textarea:focus {
 @media (max-width: 720px) {
   .site-header {
     min-height: 68px;
+    gap: 8px;
+    padding: 10px 12px;
   }
 
   .brand small {
@@ -1565,19 +1567,20 @@ textarea:focus {
   }
 
   .brand strong {
-    max-width: 160px;
-    font-size: 0.92rem;
+    display: none;
   }
 
   .brand-mark {
-    width: 42px;
-    height: 42px;
-    flex-basis: 42px;
+    width: clamp(116px, 34vw, 174px);
+    height: 44px;
+    flex: 0 0 clamp(116px, 34vw, 174px);
+    border-radius: 8px;
+    background: #fff url("assets/mabidilala-logo-full.png") center / contain no-repeat;
+    box-shadow: 0 8px 18px rgba(24, 49, 63, 0.08);
   }
 
   .brand-mark img {
-    width: 38px;
-    height: 38px;
+    display: none;
   }
 
   .nav-toggle {
@@ -1588,8 +1591,8 @@ textarea:focus {
   .header-booking-button {
     min-height: 42px;
     margin-left: 8px;
-    padding: 9px 12px;
-    font-size: 0.84rem;
+    padding: 9px 10px;
+    font-size: 0.8rem;
   }
 
   .site-nav {
