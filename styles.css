@@ -549,11 +549,13 @@ h3 {
 
 .service-card {
   position: relative;
+  display: flex;
+  flex-direction: column;
   min-height: 430px;
   overflow: hidden;
-  padding: 0 0 24px;
-  border: 1px solid rgba(214, 226, 230, 0.9);
-  border-radius: 14px;
+  padding: 0 0 26px;
+  border: 1px solid rgba(24, 49, 63, 0.28);
+  border-radius: 12px;
   background: #fff;
   box-shadow: 0 10px 30px rgba(24, 49, 63, 0.06);
   transition: transform 180ms ease, border-color 180ms ease, box-shadow 180ms ease, background 180ms ease;
@@ -620,26 +622,38 @@ h3 {
   padding-inline: 24px;
 }
 
-.service-card h2 {
+.service-card h2,
+.service-card h3 {
+  order: -1;
+  display: grid;
+  min-height: 86px;
   margin: 0;
+  place-items: center;
+  padding: 18px 20px;
+  color: #fff;
+  background: linear-gradient(135deg, #0827a7, #001b82);
+  text-align: center;
+}
+
+.service-card h2 {
+  font-size: 1.28rem;
+}
+
+.service-card h3 {
   font-size: 1.24rem;
 }
 
 .service-picture {
   position: relative;
-  margin: 0 0 22px;
-  aspect-ratio: 32 / 21;
+  margin: 0;
+  aspect-ratio: 1 / 0.9;
   overflow: hidden;
-  border-radius: 14px 14px 0 0;
-  background: var(--sky);
+  border-radius: 0;
+  background: #fff;
 }
 
 .service-picture::after {
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(180deg, rgba(24, 49, 63, 0), rgba(24, 49, 63, 0.18));
-  content: "";
-  pointer-events: none;
+  display: none;
 }
 
 .service-picture svg {
@@ -651,7 +665,7 @@ h3 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: scale(1.01);
+  transform: scale(1);
   transition: transform 240ms ease, filter 240ms ease;
 }
 
@@ -659,7 +673,7 @@ h3 {
 .service-card:focus-visible .service-picture img,
 .service-card.is-active .service-picture img {
   filter: saturate(1.06) contrast(1.02);
-  transform: scale(1.06);
+  transform: scale(1.035);
 }
 
 .service-picture figcaption {
@@ -1043,6 +1057,7 @@ h3 {
 }
 
 .service-card p {
+  display: none;
   color: var(--muted);
 }
 
@@ -1052,7 +1067,7 @@ h3 {
   justify-content: center;
   width: fit-content;
   min-height: 40px;
-  margin: 4px 24px 0;
+  margin: auto auto 0;
   padding: 9px 13px;
   border-radius: 8px;
   color: #fff;
@@ -1070,7 +1085,11 @@ h3 {
 }
 
 .service-package-grid .service-card {
-  min-height: 480px;
+  min-height: 420px;
+}
+
+.service-package-grid .service-picture {
+  aspect-ratio: 1 / 0.86;
 }
 
 .care-pathway-section {
@@ -1232,6 +1251,13 @@ h3 {
 .faq-list p,
 .resource-grid p {
   color: var(--muted);
+}
+
+.faq-disclaimer {
+  grid-column: 1 / -1;
+  background:
+    linear-gradient(135deg, rgba(223, 244, 251, 0.72), rgba(255, 255, 255, 0.96)),
+    #fff;
 }
 
 .service-detail-list {
