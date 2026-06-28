@@ -129,7 +129,7 @@ bookingForm?.addEventListener("submit", (event) => {
     message
   ].join("\n");
   const whatsappUrl = `https://wa.me/27815494535?text=${encodeURIComponent(body)}`;
-  const emailUrl = `mailto:mabidilalapsychologist@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  const emailUrl = `mailto:info@mabidilalapsychologist.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
   if (!updateSlotAvailability(bookingForm)) {
     return;
@@ -146,7 +146,7 @@ bookingForm?.addEventListener("submit", (event) => {
     status.textContent = "Sending booking request...";
   }
 
-  fetch("https://formsubmit.co/ajax/mabidilalapsychologist@gmail.com", {
+  fetch("https://formsubmit.co/ajax/info@mabidilalapsychologist.co.za", {
     method: "POST",
     headers: {
       Accept: "application/json"
@@ -199,5 +199,5 @@ reviewForm?.addEventListener("submit", (event) => {
     status.textContent = "Opening email for review submission...";
   }
 
-  window.location.href = `mailto:mabidilalapsychologist@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.location.href = `mailto:info@mabidilalapsychologist.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 });
