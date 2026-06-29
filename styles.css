@@ -1808,84 +1808,133 @@ textarea:focus {
 
 .portal-hero {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
-  gap: clamp(28px, 5vw, 64px);
+  grid-template-columns: minmax(0, 0.95fr) minmax(280px, 430px);
+  gap: clamp(24px, 5vw, 58px);
   align-items: center;
   padding-right: clamp(18px, 5vw, 78px);
-  padding-bottom: clamp(44px, 7vw, 84px);
+  padding-bottom: clamp(32px, 5vw, 58px);
   padding-left: clamp(18px, 5vw, 78px);
   background:
-    linear-gradient(125deg, rgba(251, 252, 251, 0.98), rgba(223, 244, 251, 0.72)),
-    url("assets/hero-background.png");
-  background-position: center;
-  background-size: cover;
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(223, 244, 251, 0.62)),
+    var(--paper);
 }
 
 .portal-hero h1 {
-  font-size: clamp(2.25rem, 4.8vw, 4.6rem);
+  font-size: clamp(2.15rem, 4.2vw, 4rem);
+}
+
+.portal-hero .lead {
+  max-width: 720px;
 }
 
 .portal-status-panel {
   display: grid;
-  grid-template-columns: 52px minmax(0, 1fr);
-  gap: 14px;
+  grid-template-columns: 42px minmax(0, 1fr);
+  gap: 12px;
   align-items: center;
-  padding: clamp(22px, 3vw, 30px);
+  padding: clamp(18px, 3vw, 24px);
   border: 1px solid var(--line);
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.92);
-  box-shadow: var(--shadow);
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 12px 32px rgba(24, 49, 63, 0.08);
 }
 
 .portal-status-panel span {
   display: grid;
   place-items: center;
-  width: 46px;
-  height: 46px;
-  border-radius: 14px;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
   color: #fff;
-  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  background: var(--blue);
   font-weight: 900;
 }
 
 .portal-status-panel strong {
-  font-size: 1.05rem;
+  font-size: 0.98rem;
 }
 
 .portal-security-strip {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 14px;
-  padding: clamp(34px, 5vw, 58px) clamp(18px, 5vw, 78px);
-  background: var(--ink);
+  gap: 12px;
+  padding: clamp(22px, 4vw, 38px) clamp(18px, 5vw, 78px);
+  background: #fff;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
 .portal-security-strip article {
-  padding: 24px;
-  border-left: 4px solid var(--coral);
-  border-radius: 0 12px 12px 0;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--blue);
+  border-radius: 8px;
+  color: var(--ink);
+  background: var(--paper);
 }
 
 .portal-security-strip h2 {
-  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+  font-size: clamp(1.15rem, 1.6vw, 1.45rem);
 }
 
 .portal-security-strip p {
   margin-bottom: 0;
-  color: rgba(255, 255, 255, 0.76);
+  color: var(--muted);
+  font-size: 0.98rem;
 }
 
 .portal-form-section {
-  padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 78px);
-  background:
-    linear-gradient(180deg, #fff, rgba(223, 244, 251, 0.58)),
-    #fff;
+  padding: clamp(40px, 6vw, 72px) clamp(18px, 5vw, 78px);
+  background: linear-gradient(180deg, #fff, rgba(223, 244, 251, 0.38));
+}
+
+.portal-form-layout {
+  display: grid;
+  grid-template-columns: minmax(260px, 360px) minmax(0, 1fr);
+  gap: clamp(22px, 4vw, 46px);
+  align-items: start;
+  max-width: 1180px;
+}
+
+.portal-form-intro {
+  position: sticky;
+  top: 100px;
+  display: grid;
+  gap: 14px;
+}
+
+.portal-form-intro h2 {
+  font-size: clamp(1.75rem, 2.8vw, 2.5rem);
+}
+
+.portal-form-intro p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
 }
 
 .portal-form {
-  max-width: 980px;
+  max-width: none;
+  box-shadow: 0 12px 34px rgba(24, 49, 63, 0.08);
+}
+
+.portal-form fieldset {
+  gap: 14px;
+  padding-bottom: 18px;
+}
+
+.portal-form legend {
+  padding: 0 0 2px;
+  font-size: 1rem;
+}
+
+.portal-form input,
+.portal-form select,
+.portal-form textarea {
+  min-height: 46px;
+}
+
+.portal-form textarea {
+  min-height: 112px;
 }
 
 @keyframes gentle-rise {
@@ -1994,10 +2043,15 @@ textarea:focus {
   .hero,
   .about-hero,
   .portal-hero,
+  .portal-form-layout,
   .split-section,
   .appointment-section,
   .location-section {
     grid-template-columns: 1fr;
+  }
+
+  .portal-form-intro {
+    position: static;
   }
 
   .hero {
