@@ -104,11 +104,11 @@ img {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(8px, 1.2vw, 18px);
+  gap: clamp(7px, 1vw, 15px);
   margin-left: auto;
   color: var(--muted);
   font-weight: 700;
-  font-size: clamp(0.88rem, 0.95vw, 1rem);
+  font-size: clamp(0.84rem, 0.9vw, 0.98rem);
 }
 
 .site-nav a {
@@ -1188,9 +1188,31 @@ h3 {
   font-size: clamp(2.2rem, 5vw, 4.8rem);
 }
 
+.page-start {
+  padding-top: clamp(34px, 5vw, 62px);
+}
+
 .content-band {
   padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 78px);
   background: #fff;
+}
+
+.about-summary {
+  display: grid;
+  gap: 18px;
+  max-width: 920px;
+}
+
+.about-summary h1,
+.service-page-heading h1,
+.faq-page-heading h1 {
+  font-size: clamp(2.05rem, 4.6vw, 4.2rem);
+}
+
+.about-summary p:not(.eyebrow) {
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1.08rem, 1.7vw, 1.28rem);
 }
 
 .content-grid {
@@ -1245,12 +1267,16 @@ h3 {
 
 .faq-list h2,
 .resource-grid h2 {
-  font-size: 1.28rem;
+  font-size: clamp(1.55rem, 2.3vw, 2.05rem);
 }
 
 .faq-list p,
 .resource-grid p {
   color: var(--muted);
+}
+
+.faq-list p {
+  font-size: clamp(1.06rem, 1.45vw, 1.2rem);
 }
 
 .faq-disclaimer {
@@ -1452,6 +1478,10 @@ h3 {
   border-top: 5px solid var(--coral);
 }
 
+.booking-form h2 {
+  font-size: clamp(1.55rem, 2.4vw, 2.15rem);
+}
+
 .booking-form::before {
   position: absolute;
   top: -5px;
@@ -1485,6 +1515,39 @@ textarea {
 textarea {
   min-height: 124px;
   resize: vertical;
+}
+
+fieldset {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 0;
+  padding: 0 0 20px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+fieldset:last-of-type {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+legend {
+  grid-column: 1 / -1;
+  margin-bottom: 4px;
+  color: var(--blue-dark);
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.privacy-note {
+  margin: 0;
+  padding: 14px 16px;
+  border: 1px solid rgba(47, 120, 155, 0.18);
+  border-radius: 10px;
+  color: var(--muted);
+  background: rgba(223, 244, 251, 0.56);
+  font-size: 0.95rem;
 }
 
 input:focus,
@@ -1743,6 +1806,88 @@ textarea:focus {
     #fff;
 }
 
+.portal-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 420px);
+  gap: clamp(28px, 5vw, 64px);
+  align-items: center;
+  padding-right: clamp(18px, 5vw, 78px);
+  padding-bottom: clamp(44px, 7vw, 84px);
+  padding-left: clamp(18px, 5vw, 78px);
+  background:
+    linear-gradient(125deg, rgba(251, 252, 251, 0.98), rgba(223, 244, 251, 0.72)),
+    url("assets/hero-background.png");
+  background-position: center;
+  background-size: cover;
+}
+
+.portal-hero h1 {
+  font-size: clamp(2.25rem, 4.8vw, 4.6rem);
+}
+
+.portal-status-panel {
+  display: grid;
+  grid-template-columns: 52px minmax(0, 1fr);
+  gap: 14px;
+  align-items: center;
+  padding: clamp(22px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: var(--shadow);
+}
+
+.portal-status-panel span {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  color: #fff;
+  background: linear-gradient(135deg, var(--blue), var(--blue-dark));
+  font-weight: 900;
+}
+
+.portal-status-panel strong {
+  font-size: 1.05rem;
+}
+
+.portal-security-strip {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  padding: clamp(34px, 5vw, 58px) clamp(18px, 5vw, 78px);
+  background: var(--ink);
+}
+
+.portal-security-strip article {
+  padding: 24px;
+  border-left: 4px solid var(--coral);
+  border-radius: 0 12px 12px 0;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.portal-security-strip h2 {
+  font-size: clamp(1.25rem, 1.8vw, 1.65rem);
+}
+
+.portal-security-strip p {
+  margin-bottom: 0;
+  color: rgba(255, 255, 255, 0.76);
+}
+
+.portal-form-section {
+  padding: clamp(54px, 8vw, 96px) clamp(18px, 5vw, 78px);
+  background:
+    linear-gradient(180deg, #fff, rgba(223, 244, 251, 0.58)),
+    #fff;
+}
+
+.portal-form {
+  max-width: 980px;
+}
+
 @keyframes gentle-rise {
   from {
     opacity: 0;
@@ -1848,6 +1993,7 @@ textarea:focus {
 @media (max-width: 980px) {
   .hero,
   .about-hero,
+  .portal-hero,
   .split-section,
   .appointment-section,
   .location-section {
@@ -1870,6 +2016,7 @@ textarea:focus {
   .service-grid,
   .care-lanes,
   .care-pathway,
+  .portal-security-strip,
   .intro-copy,
   .faq-list,
   .resource-grid,
@@ -2000,6 +2147,7 @@ textarea:focus {
   .service-grid,
   .care-lanes,
   .care-pathway,
+  .portal-security-strip,
   .intro-copy,
   .faq-list,
   .resource-grid,
@@ -2020,6 +2168,10 @@ textarea:focus {
   }
 
   .service-detail {
+    grid-template-columns: 1fr;
+  }
+
+  fieldset {
     grid-template-columns: 1fr;
   }
 

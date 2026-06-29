@@ -1,6 +1,7 @@
 const navToggle = document.querySelector(".nav-toggle");
 const siteNav = document.querySelector(".site-nav");
 const bookingForm = document.querySelector("#booking-form");
+const portalRequestForm = document.querySelector("#portal-request-form");
 const reviewForm = document.querySelector("#review-form");
 const serviceCards = document.querySelectorAll(".service-card");
 const appointmentDateInputs = document.querySelectorAll('input[name="appointmentDate"]');
@@ -10,6 +11,12 @@ const manuallyUnavailableSlots = [
   // Add confirmed unavailable slots here in "YYYY-MM-DDTHH:MM" format.
   // Example: "2026-07-05T10:00"
 ];
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("service-worker.js").catch(() => {});
+  });
+}
 
 const today = new Date();
 const timezoneOffset = today.getTimezoneOffset() * 60000;
@@ -170,6 +177,106 @@ bookingForm?.addEventListener("submit", (event) => {
       status?.classList.add("error");
       if (status) {
         status.innerHTML = `The automatic email could not be sent. <a href="${whatsappUrl}">Send on WhatsApp</a> or <a href="${emailUrl}">open email</a>.`;
+      }
+    })
+    .finally(() => {
+      submitButton?.removeAttribute("disabled");
+    });
+});
+
+portalRequestForm?.addEventListener("submit", (event) => {
+  event.preventDefault();
+  const submitButton = portalRequestForm.querySelector('button[type="submit"]');
+  const status = portalRequestForm.querySelector(".form-status");
+  const data = new FormData(portalRequestForm);
+  const password = data.get("portalPassword")?.toString() || "";
+  const passwordConfirm = data.get("portalPasswordConfirm")?.toString() || "";
+  const portalEmail = data.get("portalEmail")?.toString().trim() || "";
+  const portalPhone = data.get("portalPhone")?.toString().trim() || "";
+  const clientName = data.get("clientName")?.toString().trim() || "";
+  const clientId = data.get("clientId")?.toString().trim() || "";
+  const birthDate = data.get("birthDate")?.toString().trim() || "";
+  const region = data.get("region")?.toString().trim() || "";
+  const medicalAidProvider = data.get("medicalAidProvider")?.toString().trim() || "Not provided";
+  const medicalAidNumber = data.get("medicalAidNumber")?.toString().trim() || "Not provided";
+  const mainMemberName = data.get("mainMemberName")?.toString().trim() || "Not provided";
+  const consultation = data.get("consultation")?.toString().trim() || "";
+  const appointmentDate = data.get("appointmentDate")?.toString().trim() || "";
+  const appointmentTime = data.get("appointmentTime")?.toString().trim() || "";
+  const message = data.get("message")?.toString().trim() || "";
+  const slotKey = getSlotKey(portalRequestForm);
+  const subject = "Appointment at MC Mabidilala Clinical Psycology - Client Portal Request";
+
+  if (password !== passwordConfirm) {
+    status?.classList.add("error");
+    if (status) {
+      status.textContent = "Passwords do not match. Please check and try again.";
+    }
+    return;
+  }
+
+  if (!updateSlotAvailability(portalRequestForm)) {
+    return;
+  }
+
+  data.delete("portalPassword");
+  data.delete("portalPasswordConfirm");
+  data.append("_subject", subject);
+  data.append("_template", "box");
+  data.append("_captcha", "false");
+  data.append("security_note", "Client created login details on the portal request form. Password was not emailed or stored by the static website.");
+  data.append("portal_summary", [
+    "Client portal access and appointment request",
+    "",
+    `Client name: ${clientName}`,
+    `Email: ${portalEmail}`,
+    `Mobile: ${portalPhone}`,
+    `ID or passport: ${clientId}`,
+    `Date of birth: ${birthDate}`,
+    `Region: ${region}`,
+    "",
+    `Medical aid provider: ${medicalAidProvider}`,
+    `Medical aid number: ${medicalAidNumber}`,
+    `Main member: ${mainMemberName}`,
+    "",
+    `Consultation: ${consultation}`,
+    `Preferred date: ${appointmentDate}`,
+    `Preferred time: ${appointmentTime}`,
+    "",
+    "Notes:",
+    message
+  ].join("\n"));
+
+  submitButton?.setAttribute("disabled", "true");
+  status?.classList.remove("error");
+  if (status) {
+    status.textContent = "Sending portal request...";
+  }
+
+  fetch("https://formsubmit.co/ajax/info@mabidilalapsychologist.co.za", {
+    method: "POST",
+    headers: {
+      Accept: "application/json"
+    },
+    body: data
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Portal request could not be sent.");
+      }
+      return response.json();
+    })
+    .then(() => {
+      saveUnavailableSlot(slotKey);
+      portalRequestForm.reset();
+      if (status) {
+        status.textContent = "Portal request sent. The practice will confirm your booking and secure consultation access.";
+      }
+    })
+    .catch(() => {
+      status?.classList.add("error");
+      if (status) {
+        status.textContent = "The portal request could not be sent automatically. Please WhatsApp or email the practice.";
       }
     })
     .finally(() => {

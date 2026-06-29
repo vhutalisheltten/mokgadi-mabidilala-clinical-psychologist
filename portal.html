@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Client Portal | Mokgadi Mabidilala Clinical Psychologist</title>
+    <meta name="description" content="Client portal for secure online consultation requests, bookings, personal details, medical aid information, and region details.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="app.webmanifest">
+    <meta name="theme-color" content="#2f789b">
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="index.html" aria-label="Mokgadi Mabidilala home">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/mabidilala-logo-mark.png" alt=""></span>
+        <span>
+          <strong>Mokgadi Mabidilala</strong>
+          <small>Clinical Psychologist</small>
+        </span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="services.html">Services</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="resources.html">Resources/Blog</a>
+        <a href="portal.html" aria-current="page">Client Portal</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <a class="header-booking-button" href="contact.html#booking">Book Appointment</a>
+    </header>
+
+    <main>
+      <section class="portal-hero page-start">
+        <div>
+          <p class="eyebrow">Client Portal</p>
+          <h1>Online consultation access and secure booking requests.</h1>
+          <p class="lead">Create your access request, add your personal details, medical aid number, and region, then the practice will confirm the appointment and send the consultation link privately.</p>
+          <div class="hero-actions">
+            <a class="button primary" href="#portal-form">Start Portal Request</a>
+            <a class="button secondary" href="https://wa.me/27815494535">WhatsApp the Practice</a>
+          </div>
+        </div>
+        <div class="portal-status-panel" aria-label="Online consultation process">
+          <span>1</span>
+          <strong>Create access details</strong>
+          <span>2</span>
+          <strong>Complete client information</strong>
+          <span>3</span>
+          <strong>Receive confirmed secure session link</strong>
+        </div>
+      </section>
+
+      <section class="portal-security-strip" aria-label="Secure consultation notes">
+        <article>
+          <h2>Secure online consultations</h2>
+          <p>Online sessions are arranged only after appointment confirmation. The practice sends the private session link directly to the confirmed client by email or WhatsApp.</p>
+        </article>
+        <article>
+          <h2>Private intake details</h2>
+          <p>The portal request sends your information to the practice email for review. Please do not share emergency information through this form.</p>
+        </article>
+        <article>
+          <h2>Booking confirmation</h2>
+          <p>Date and time requests remain provisional until the practice confirms availability, medical aid requirements, and consultation suitability.</p>
+        </article>
+      </section>
+
+      <section id="portal-form" class="portal-form-section">
+        <div class="section-heading">
+          <p class="eyebrow">Client App</p>
+          <h2>Portal Request Form</h2>
+          <p>Use this form to request online consultation access and submit the details needed before booking confirmation.</p>
+        </div>
+
+        <form class="booking-form portal-form" id="portal-request-form">
+          <fieldset>
+            <legend>Create Login Details</legend>
+            <label>
+              Email address
+              <input name="portalEmail" type="email" autocomplete="email" required>
+            </label>
+            <label>
+              Mobile number
+              <input name="portalPhone" type="tel" autocomplete="tel" required>
+            </label>
+            <label>
+              Create password
+              <input name="portalPassword" type="password" autocomplete="new-password" minlength="8" required>
+            </label>
+            <label>
+              Confirm password
+              <input name="portalPasswordConfirm" type="password" autocomplete="new-password" minlength="8" required>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Personal Details</legend>
+            <label>
+              Full name
+              <input name="clientName" type="text" autocomplete="name" required>
+            </label>
+            <label>
+              ID or passport number
+              <input name="clientId" type="text" autocomplete="off" required>
+            </label>
+            <label>
+              Date of birth
+              <input name="birthDate" type="date" required>
+            </label>
+            <label>
+              Region
+              <select name="region" required>
+                <option value="">Select region</option>
+                <option>Limpopo</option>
+                <option>Gauteng</option>
+                <option>Mpumalanga</option>
+                <option>North West</option>
+                <option>Free State</option>
+                <option>KwaZulu-Natal</option>
+                <option>Eastern Cape</option>
+                <option>Western Cape</option>
+                <option>Northern Cape</option>
+                <option>Outside South Africa</option>
+              </select>
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Medical Aid Details</legend>
+            <label>
+              Medical aid provider
+              <input name="medicalAidProvider" type="text" autocomplete="off" placeholder="Discovery, Bonitas, GEMS, Momentum, etc.">
+            </label>
+            <label>
+              Medical aid number
+              <input name="medicalAidNumber" type="text" autocomplete="off">
+            </label>
+            <label>
+              Main member name
+              <input name="mainMemberName" type="text" autocomplete="off">
+            </label>
+          </fieldset>
+
+          <fieldset>
+            <legend>Booking Details</legend>
+            <label>
+              Consultation type
+              <select name="consultation" required>
+                <option value="">Select an option</option>
+                <option>Online therapy</option>
+                <option>Individual therapy</option>
+                <option>Couples therapy</option>
+                <option>Family therapy</option>
+                <option>Child and adolescent therapy</option>
+                <option>Psychological assessment</option>
+                <option>Group therapy</option>
+              </select>
+            </label>
+            <label>
+              Preferred appointment date
+              <input name="appointmentDate" type="date" required>
+            </label>
+            <label>
+              Preferred time
+              <input name="appointmentTime" type="time" required>
+            </label>
+            <label>
+              Notes for the practice
+              <textarea name="message" rows="5" required></textarea>
+            </label>
+          </fieldset>
+
+          <p class="privacy-note">Your password is used only to request portal access and is not stored on this static website. The practice will confirm your secure consultation access privately.</p>
+          <div class="form-actions">
+            <button class="button primary" type="submit">Submit Portal Request</button>
+            <a class="button secondary" href="contact.html#booking">Use Simple Booking</a>
+          </div>
+          <p class="form-status" role="status" aria-live="polite"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; 2026 Mokgadi Mabidilala Clinical Psychologist. Pr No: 1254677.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
