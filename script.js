@@ -219,13 +219,7 @@ portalRequestForm?.addEventListener("submit", (event) => {
     return;
   }
 
-  data.delete("portalPassword");
-  data.delete("portalPasswordConfirm");
-  data.append("_subject", subject);
-  data.append("_template", "box");
-  data.append("_captcha", "false");
-  data.append("security_note", "Client created login details on the portal request form. Password was not emailed or stored by the static website.");
-  data.append("portal_summary", [
+  const body = [
     "Client portal access and appointment request",
     "",
     `Client name: ${clientName}`,
@@ -244,44 +238,25 @@ portalRequestForm?.addEventListener("submit", (event) => {
     `Preferred time: ${appointmentTime}`,
     "",
     "Notes:",
-    message
-  ].join("\n"));
+    message,
+    "",
+    "Security note: Client created login details on the portal request form. Password was not emailed or stored by the static website."
+  ].join("\n");
 
   submitButton?.setAttribute("disabled", "true");
   status?.classList.remove("error");
   if (status) {
-    status.textContent = "Sending portal request...";
+    status.textContent = "Opening your email app so you can review and send the portal request...";
   }
 
-  fetch("https://formsubmit.co/ajax/info@mabidilalapsychologist.co.za", {
-    method: "POST",
-    headers: {
-      Accept: "application/json"
-    },
-    body: data
-  })
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Portal request could not be sent.");
-      }
-      return response.json();
-    })
-    .then(() => {
-      saveUnavailableSlot(slotKey);
-      portalRequestForm.reset();
-      if (status) {
-        status.textContent = "Portal request sent. The practice will confirm your booking and secure consultation access.";
-      }
-    })
-    .catch(() => {
-      status?.classList.add("error");
-      if (status) {
-        status.textContent = "The portal request could not be sent automatically. Please WhatsApp or email the practice.";
-      }
-    })
-    .finally(() => {
-      submitButton?.removeAttribute("disabled");
-    });
+  saveUnavailableSlot(slotKey);
+  window.location.href = `mailto:info@mabidilalapsychologist.co.za?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  window.setTimeout(() => {
+    submitButton?.removeAttribute("disabled");
+    if (status) {
+      status.textContent = "Email draft opened. Please review and send it to complete the portal request.";
+    }
+  }, 800);
 });
 
 reviewForm?.addEventListener("submit", (event) => {
